@@ -505,14 +505,14 @@ void Gopher::handleMouseMovement()
   if (SWAP_THUMBSTICKS == 0)
   {
     // Use left stick
-    tx = _currentState.Gamepad.sThumbLX;
-    ty = _currentState.Gamepad.sThumbLY;
+    tx = _currentState.Gamepad.sThumbRX;
+    ty = _currentState.Gamepad.sThumbRY;
   }
   else
   {
     // Use right stick
-    tx = _currentState.Gamepad.sThumbRX;
-    ty = _currentState.Gamepad.sThumbRY;
+    tx = _currentState.Gamepad.sThumbLX;
+    ty = _currentState.Gamepad.sThumbLY;
   }
 
   float x = cursor.x + _xRest;
@@ -550,14 +550,14 @@ void Gopher::handleScrolling()
   if (SWAP_THUMBSTICKS == 0)
   {
     // Use right stick
-    tx = getDelta(_currentState.Gamepad.sThumbRX);
-    ty = getDelta(_currentState.Gamepad.sThumbRY);
+    tx = getDelta(_currentState.Gamepad.sThumbLX);
+    ty = getDelta(_currentState.Gamepad.sThumbLY);
   }
   else
   {
     // Use left stick
-    tx = getDelta(_currentState.Gamepad.sThumbLX);
-    ty = getDelta(_currentState.Gamepad.sThumbLY);
+    tx = getDelta(_currentState.Gamepad.sThumbRX);
+    ty = getDelta(_currentState.Gamepad.sThumbRY);
   }
 
   // Handle dead zone
