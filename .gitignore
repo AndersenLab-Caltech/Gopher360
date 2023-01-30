@@ -1,6 +1,7 @@
 Windows/Gopher/.vs
 Windows/**/Debug
-Windows/**/Release
+Windows/Gopher*
+Windows/Release/Gopher*
 *.opensdf
 *.sdf
 Windows/.vs
@@ -14,4 +15,3 @@ Windows/.vs/Gopher/v15/Browse.VC.opendb
 Windows/Gopher/Resource.aps
 */GOPHER.ipch
 .vs
-config.ini
