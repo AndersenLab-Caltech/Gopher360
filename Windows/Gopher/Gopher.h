@@ -32,7 +32,7 @@ private:
   const float SPEED_ULTRALOW = 0.02f;
   const float SPEED_LOW = 0.04f;
   const float SPEED_MED = 0.08f;
-  const float SPEED_HIGH = 0.30f;
+  const float SPEED_HIGH = 0.7f; // was 0.30f. sped up by TC 20230125 for gameplay speed
   float speed = SPEED_MED;
   float acceleration_factor = 0.0f;
 
@@ -60,6 +60,7 @@ private:
   DWORD CONFIG_DISABLE_VIBRATION = NULL;
   DWORD CONFIG_SPEED_CHANGE = NULL;
   DWORD CONFIG_OSK = NULL;
+  DWORD CONFIG_SWAP_THUMBSTICKS = NULL; // added by TC 20230124
 
   // Gamepad bindings
   DWORD GAMEPAD_DPAD_UP = NULL;

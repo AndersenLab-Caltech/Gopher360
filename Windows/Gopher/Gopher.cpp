@@ -93,6 +93,7 @@ void Gopher::loadConfigFile()
   CONFIG_DISABLE_VIBRATION = strtol(cfg.getValueOfKey<std::string>("CONFIG_DISABLE_VIBRATION").c_str(), 0, 0);
   CONFIG_SPEED_CHANGE = strtol(cfg.getValueOfKey<std::string>("CONFIG_SPEED_CHANGE").c_str(), 0, 0);
   CONFIG_OSK = strtol(cfg.getValueOfKey<std::string>("CONFIG_OSK").c_str(), 0, 0);
+  CONFIG_SWAP_THUMBSTICKS = strtol(cfg.getValueOfKey<std::string>("CONFIG_SWAP_THUMBSTICKS").c_str(), 0, 0); // added by TC 20230124
 
   //--------------------------------
   // Controller bindings
@@ -236,6 +237,26 @@ void Gopher::loop()
     {
       toggleWindowVisibility();
     }
+  }
+
+  // Swaps the thumbsticks and left mouse click (added by TC 20230124)
+  if (CONFIG_SWAP_THUMBSTICKS)
+  {
+	  setXboxClickState(CONFIG_SWAP_THUMBSTICKS);
+	  if (_xboxClickIsDown[CONFIG_SWAP_THUMBSTICKS])
+	  {
+		  SWAP_THUMBSTICKS = -SWAP_THUMBSTICKS + 1; // flips 0 to 1 and vice-versa
+
+		  if (SWAP_THUMBSTICKS == 0)
+		  {
+			  CONFIG_MOUSE_LEFT = 0x0200;
+		  }
+		  if (SWAP_THUMBSTICKS == 1)
+		  {
+			  CONFIG_MOUSE_LEFT = 0x0100;
+		  }
+		  
+	  }
   }
 
   // Toggle the on-screen keyboard
